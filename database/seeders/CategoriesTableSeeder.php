@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\CategoryModel;
 
-class CategorySeeder extends Seeder
+class CategoriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,5 +17,5 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category:: factory()->count(15)->create();
-    }
+}
 }

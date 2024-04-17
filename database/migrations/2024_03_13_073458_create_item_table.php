@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
+        Schema::create('item', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('TenHang');
+            $table->string('DonViTinh');
+            $table->integer('SoLuongNhap');
+            $table->integer('GiaNhap');
+            $table->integer('GiaBan');
+            $table->timestamps();
         });
     }
 
@@ -27,9 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-            $table->dropForeign(['category_id']);
-        });
+        Schema::dropIfExists('item');
     }
 };
